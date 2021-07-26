@@ -21,10 +21,10 @@ def get_lyrics(page_soup):
     # containerize
     containers = page_soup.find_all('div', {'class':'BNeawe tAd8D AP7Wnd'})
     lyrics = []
-    print(containers)
     
-    for container in containers:
-        lyrics.append(container.text)
+    
+    for i in range(0, len(containers), 2):
+        lyrics.append(containers[i].text)
     lyrics_str = "".join([str(x) for x in lyrics]).strip("\n")
     return lyrics_str
 

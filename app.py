@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import googlescraper
-import json
 from SpotifyAPIManager import Spotify
 
 app = FastAPI()
@@ -21,9 +20,13 @@ async def current():
 
 @app.get("/")
 async def root():
-    return {"message": "welcome"}
+    return {"Hello": "For more info visit /docs."}
 
-@app.get("/{artist_name}/{song_name}")
+@app.get("/api/docs")
+async def docs():
+    return "docs"
+
+@app.get("/api/{artist_name}/{song_name}")
 def get_info(artist_name, song_name):
     
     try:
@@ -40,4 +43,4 @@ def get_info(artist_name, song_name):
         return data
 
     except:
-        return {"error": "song can't found"}
+        return {"Error": "Song couldn't found."}

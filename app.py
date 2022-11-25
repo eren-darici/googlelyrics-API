@@ -30,6 +30,8 @@ async def docs():
 def get_info(artist_name, song_name):
     
     try:
+        artist_name = artist_name.replace(" ", "")
+        song_name = song_name.replace(" ", "")
         # url = f"https://www.azlyrics.com/lyrics/{artist_name}/{song_name}.html"
         url = f"http://www.google.com/search?q={artist_name}+{song_name}+lyrics"
         parsed = googlescraper.parse_url(url)

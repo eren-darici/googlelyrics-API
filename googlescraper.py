@@ -17,7 +17,6 @@ def parse_url(url: str):
     return page_soup
 
 def get_lyrics(page_soup):
-      
     # containerize
     containers = page_soup.find_all('div', {'class':'BNeawe tAd8D AP7Wnd'})
     lyrics = []
